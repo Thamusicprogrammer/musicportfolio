@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJoz Website</title>
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+ 
+<body>
+    <header id="header">
+        <div class="logo">Jazzy Records</div>
+        <button class="menu-icon" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="#">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="beats.html">Beats</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+           
+          </ul>
+        </nav>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </header>
+
+  <section class="hero">
+    <div class="carousel">
+      <div class="slide active" style="background-image: url('./assets/images/6.jpg');">
+        <div class="content">
+          <h2>Welcome To Jazzy Records</h2>
+          <p>Your Number One Home Of Melodies .</p>
+          <button class="play-btn" data-audio="./assets/songs/Wizkid - Kese (Dance).mp3">
+            <i class="fas fa-play"></i>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
+  <audio id="audioPlayer"></audio>
+  
+
+  <!-- Down Arrow Section -->
+<div class="down-arrow">
+    <i class="fas fa-chevron-down"></i>
+  </div>
+  
+  
+  <!-- Upcoming Events Section -->
+  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/0IeZt1lgky753zJAiiPhCC?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+<section class="upcoming-events">
+    <h2>Latest Tracks</h2>
+    <div class="slider">
+      <button class="arrow left-arrow"><i class="fas fa-chevron-left"></i></button>
+      <div class="slides">
+        <!-- Slide 1 -->
+        <div class="slide">
+          <img src="./assets/images/stm.jpeg" alt="Event 1">
+          <div class="info">
+            <span class="date">Single</span>
+            <h3>Share The Money</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Funkhaus Berlin, Berlin, Germany</p>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="slide">
+          <img src="./assets/images/for me.jpeg" alt="Event 2">
+          <div class="info">
+            <span class="date">Single</span>
+            <h3>For Me</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Funkhaus Berlin, Berlin, Germany</p>
+          </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="slide">
+          <img src="./assets/images/omw.jpeg" alt="Event 3">
+          <div class="info">
+            <span class="date">Single</span>
+            <h3>OMW (On My Way)</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Funkhaus Berlin, Berlin, Germany</p>
+          </div>
+        </div>
+        <!-- Additional slides -->
+        <div class="slide">
+          <img src="./assets/images/gbejami.jpg" alt="Event 4">
+          <div class="info">
+            <span class="date">Album</span>
+            <h3>Gbejami</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Funkhaus Berlin, Berlin, Germany</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="./assets/images/metaverse.jpeg" alt="Event 5">
+          <div class="info">
+            <span class="date">Single</span>
+            <h3>Metaverse</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Funkhaus Berlin, Berlin, Germany</p>
+          </div>
+        </div>
+      </div>
+      <button class="arrow right-arrow"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </section>
+
+  
+
+  <section class="about-section">
+    <div class="about-container">
+      <div class="image-container">
+        <img src="./assets/images/thamusicprogrammer.jpg"  alt="DJ Alexandra Rud">
+        <div class="animated-shapes">
+          <div class="shape"></div>
+          <div class="shape"></div>
+          <div class="shape"></div>
+        </div>
+      </div>
+      <div class="text-container">
+        <h2>Thamusicprogrammer</h2>
+        <p>
+            Samijazz, also known as Thamusicprogrammer, is a versatile Nigerian artist, songwriter, and music producer from Lagos State, skilled in blending diverse genres with innovation and creativity.        </p>
+        <a href="contact.html" class="cta-button">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="music-services">
+    <div class="music-left">
+      <div class="music-play-button">
+        <button id="play-button">
+          <i class="fas fa-play"></i>
+        </button>
+        <canvas id="audio-visualizer"></canvas>
+      </div>
+    </div>
+    <div class="services-right">
+      <div class="service-box">
+        <i class="fas fa-headphones"></i>
+        <h3>Producer</h3>
+        <p>Samijazz is a producer who blends innovation and precision to create music that moves you.</p>
+      </div>
+      <div class="service-box">
+        <i class="fas fa-music"></i>
+        <h3>Mixing And Mastering</h3>
+        <p>Samijazz brings tracks to life with expert mixing and mastering, ensuring every detail shines with precision</p>
+      </div>
+      <div class="service-box">
+        <i class="fas fa-microphone"></i>
+        <h3>Artists</h3>
+        <p>Samijazz is an artist who pushes boundaries, creating music that captivates and inspires.</p>
+      </div>
+      <div class="service-box">
+        <i class="fas fa-keyboard"></i>
+        <h3>Pianist</h3>
+        <p>Samijazz is a pianist whose expressive playing blends technical skill with emotional depth.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="beats-section">
+    <!-- Left Section -->
+    <div class="left-section">
+      <h2 class="section-title">Latest Tracks</h2>
+      <div class="audio-track" onclick="playTrack(0)">
+        <p class="track-title">Asake Ft Wizkid MMs</p>
+        <div class="audio-controls">
+          <button class="play-btn" id="play0">▶</button>
+          <input type="range" id="progress0" value="0" min="0" max="100" />
+          <span class="track-duration">01:22</span>
+          <audio id="audio0" src="./assets/songs/Asake ft Wizkid MMS.m4a" preload="none"></audio>
+        </div>
+      </div><br><br>
+
+      <div class="audio-track" onclick="playTrack(1)">
+        <p class="track-title">Imole De Samijazz</p>
+        <div class="audio-controls">
+          <button class="play-btn" id="play1">▶</button>
+          <input type="range" id="progress1" value="0" min="0" max="100" />
+          <span class="track-duration">01:02</span>
+          <audio id="audio1" src="./assets/songs/Samijazz Imole De.m4a" preload="none"></audio>
+        </div>
+      </div>
+
+     
+      <!-- Repeat similar blocks for other tracks -->
+    </div>
+  
+    <!-- Right Section -->
+    <div class="right-section">
+      <img id="track-image" src="./assets/images/3.jpg" alt="Track Art" />
+      <button class="view-all-btn">VIEW ALL TRACKS</button>
+    </div>
+  </div>
+
+  <section class="countdown-section">
+    <div class="countdown-container">
+      <h3>MUSIC BOOTCAMP STARTS IN</h3>
+      <div class="countdown-timer">
+        <div class="time-box">
+          <span id="days">00</span>
+          <small>DAYS</small>
+        </div>
+        <div class="time-box">
+          <span id="hours">00</span>
+          <small>HOURS</small>
+        </div>
+        <div class="time-box">
+          <span id="minutes">00</span>
+          <small>MINUTES</small>
+        </div>
+        <div class="time-box">
+          <span id="seconds">00</span>
+          <small>SECONDS</small>
+        </div>
+      </div>
+      <button class="buy-tickets-btn">BOOK NOW</button>
+    </div>
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-column">
+          <h4>Contact Us</h4>
+          <p><i class="fas fa-phone"></i> +2349061540834</p>
+          <p><i class="fas fa-envelope"></i> Samclef72@gmail.com</p>
+        </div>
+        <div class="footer-column">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-dribbble"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Stay Updated</h4>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" />
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 All Rights Reserved | Made by Samijazz</p>
+      </div>
+    </footer>
+  </section>
+  
+  
+  
+  
+  
+  
+
+  <script>
+            // Sticky header functionality
+        window.addEventListener("scroll", function () {
+        const header = document.getElementById("header");
+        if (window.scrollY > 50) {
+            header.style.backgroundColor = "#000";
+        } else {
+            header.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+        }
+        });
+
+        const audioPlayer = document.getElementById("audioPlayer");
+        let currentPlayingButton = null;
+
+        //Menu dropdown
+        const menuIcon = document.querySelector('.menu-icon');
+        const navList = document.querySelector('.nav-list');
+
+        menuIcon.addEventListener('click', () => {
+        navList.classList.toggle('open');
+        menuIcon.classList.toggle('open');
+        });
+
+        // Add event listeners to all play buttons
+        document.querySelectorAll(".play-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+            const audioSource = button.getAttribute("data-audio");
+
+            // Pause currently playing audio if a new button is clicked
+            if (currentPlayingButton && currentPlayingButton !== button) {
+            currentPlayingButton.innerHTML = '<i class="fas fa-play"></i>';
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0;
+            }
+
+            // Play or pause the selected audio
+            if (audioPlayer.src !== audioSource) {
+            audioPlayer.src = audioSource;
+            }
+
+            if (audioPlayer.paused) {
+            audioPlayer.play();
+            button.innerHTML = '<i class="fas fa-pause"></i>';
+            currentPlayingButton = button;
+            } else {
+            audioPlayer.pause();
+            button.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        });
+        });
+        
+
+                    const slides = document.querySelector('.slides');
+            const leftArrow = document.querySelector('.left-arrow');
+            const rightArrow = document.querySelector('.right-arrow');
+
+            let currentIndex = 0;
+            const slideCount = document.querySelectorAll('.slide').length;
+            const slidesToShow = 3;
+
+            // Function to update the slider
+            function updateSlider() {
+            slides.style.transform = `translateX(-${currentIndex * (100 / slidesToShow)}%)`;
+            }
+
+            // Move to the next set of slides
+            rightArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % (slideCount - slidesToShow + 1);
+            updateSlider();
+            });
+
+            // Move to the previous set of slides
+            leftArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + (slideCount - slidesToShow + 1)) % (slideCount - slidesToShow + 1);
+            updateSlider();
+            });
+
+            // Auto-slide every 5 seconds
+            setInterval(() => {
+            currentIndex = (currentIndex + 1) % (slideCount - slidesToShow + 1);
+            updateSlider();
+            }, 5000);
+
+
+            // Smooth scrolling for the Contact button
+            document.querySelector('.cta-button').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            
+
+  </script>
+  <script src="./js/script.js"></script>
+</body>
+</html>

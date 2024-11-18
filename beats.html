@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instrumental Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="./css/beats.css">
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div class="logo">Jazzy Records</div>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="jazzyabt.html">About Us</a></li>
+            <li><a href="beats.html">Beats</a></li>
+            <li><a href="contact.html">Contact</a></li>
+         
+          </ul>
+        </nav>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </header>
+    
+      <section class="about-header">
+        <div class="container">
+          <h1>Beats</h1>
+          <p><a href="jazzy.html">Home</a> | Beats</p>
+        </div>
+      </section>
+    
+
+    <div class="main-container">
+        <!-- Beat Upload Section -->
+        <section class="upload-section" id="upload-section">
+            <h2>Upload Your Beats</h2>
+            <form id="upload-form">
+                <input type="text" id="beat-title" placeholder="Enter Beat Title" required />
+                <input type="text" id="beat-artist" placeholder="Enter Artist Name" required />
+                <input type="file" id="beat-file" accept="audio/*" required />
+                <button type="submit">Upload Beat</button>
+            </form>
+        </section>
+
+        <!-- Genre Section -->
+        <section class="genre-section" id="genres">
+            <h2>Explore by Genre</h2>
+            <div class="genre-buttons">
+                <button id="hiphop">Hip-Hop</button>
+                <button id="rnb">R&B</button>
+                <button id="gospel">Gospel</button>
+                <button id="all-beats">All Beats</button>
+            </div>
+        </section>
+
+        <!-- Advanced Search Section -->
+        <section class="search-section" id="search-section">
+            <input type="text" id="search-input" placeholder="Search by title, artist, or genre..." />
+        </section>
+
+        <!-- Beats Grid Section -->
+        <section id="beats">
+            <h2>Instrumental Beats</h2>
+            <div class="beats-grid" id="beats-grid">
+                <!-- Beats will be displayed here dynamically -->
+            </div>
+        </section>
+    </div>
+
+ <!-- Footer -->
+ <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-column">
+        <h4>Contact Us</h4>
+        <p><i class="fas fa-phone"></i> +2349061540834</p>
+        <p><i class="fas fa-envelope"></i> Samclef72@gmail.com</p>
+      </div>
+      <div class="footer-column">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-dribbble"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Stay Updated</h4>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email" />
+          <button type="submit"><i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 All Rights Reserved | Made by Samijazz</p>
+    </div>
+  </footer>
+
+    <script>
+        // JavaScript to handle beat uploading and displaying
+
+        const uploadForm = document.getElementById("upload-form");
+        const beatTitleInput = document.getElementById("beat-title");
+        const beatArtistInput = document.getElementById("beat-artist");
+        const beatFileInput = document.getElementById("beat-file");
+        const beatsGrid = document.getElementById("beats-grid");
+        const searchInput = document.getElementById("search-input");
+
+        const genres = ["Hip-Hop", "R&B", "Gospel"];
+        let beats = [];
+
+        // Handle beat upload
+        uploadForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const beatTitle = beatTitleInput.value;
+            const beatArtist = beatArtistInput.value;
+            const beatFile = beatFileInput.files[0];
+            const genre = prompt("Enter the genre (Hip-Hop, R&B, Gospel):");
+
+            if (!beatTitle || !beatArtist || !beatFile || !genres.includes(genre)) {
+                alert("Please provide a valid title, artist, file, and genre.");
+                return;
+            }
+
+            const beat = {
+                title: beatTitle,
+                artist: beatArtist,
+                file: URL.createObjectURL(beatFile),
+                genre: genre,
+                id: Date.now(),
+            };
+
+            beats.push(beat);
+            beatTitleInput.value = "";
+            beatArtistInput.value = "";
+            beatFileInput.value = "";
+
+            displayBeats(beats);
+        });
+
+        // Display beats in grid
+        function displayBeats(beatsToDisplay) {
+            beatsGrid.innerHTML = "";
+            beatsToDisplay.forEach((beat) => {
+                const beatCard = document.createElement("div");
+                beatCard.classList.add("beat-card");
+
+                const audioPlayer = `<audio controls>
+                    <source src="${beat.file}" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>`;
+
+                beatCard.innerHTML = `
+                    <h3>${beat.title}</h3>
+                    <p>Artist: ${beat.artist}</p>
+                    <p>Genre: ${beat.genre}</p>
+                    ${audioPlayer}
+                    <button onclick="playBeat(${beat.id})">Play Beat</button>
+                `;
+
+                beatsGrid.appendChild(beatCard);
+            });
+        }
+
+        // Filter beats by genre
+        document.getElementById("hiphop").addEventListener("click", () => {
+            const filteredBeats = beats.filter((beat) => beat.genre === "Hip-Hop");
+            displayBeats(filteredBeats);
+        });
+
+        document.getElementById("rnb").addEventListener("click", () => {
+            const filteredBeats = beats.filter((beat) => beat.genre === "R&B");
+            displayBeats(filteredBeats);
+        });
+
+        document.getElementById("gospel").addEventListener("click", () => {
+            const filteredBeats = beats.filter((beat) => beat.genre === "Gospel");
+            displayBeats(filteredBeats);
+        });
+
+        document.getElementById("all-beats").addEventListener("click", () => {
+            displayBeats(beats);
+        });
+
+        // Advanced search for beats
+        searchInput.addEventListener("input", (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredBeats = beats.filter(beat => {
+                return beat.title.toLowerCase().includes(searchTerm) ||
+                    beat.artist.toLowerCase().includes(searchTerm) ||
+                    beat.genre.toLowerCase().includes(searchTerm);
+            });
+            displayBeats(filteredBeats);
+        });
+
+        // Play the selected beat
+        function playBeat(id) {
+            const beat = beats.find((beat) => beat.id === id);
+            const audio = new Audio(beat.file);
+            audio.play();
+        }
+    </script>
+</body>
+
+</html>
